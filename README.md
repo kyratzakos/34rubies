@@ -1,2 +1,2 @@
 # 34rubies
-A small rpg game
+A small RPG game
