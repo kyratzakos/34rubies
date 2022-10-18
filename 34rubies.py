@@ -1,5 +1,5 @@
 def getvalidinput(possiblescenarios):
-
+    #This faction checks if the input is valid.
     while True:
         i = input().upper()
         if i == "A" or i == "B":
