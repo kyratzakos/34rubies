@@ -1,0 +1,40 @@
+{
+  "name": "34rubies",
+  "description": "A small RPG game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "premain": "rimraf dist && tsc",
+    "main": "concurrently \"tsc -w\"  \"node dist/index.js\" -i --default-input-target 1",
+    "build": "npm run lint && rimraf dist/ && tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint . --ext .ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyratzakos/34rubies.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/kyratzakos/34rubies/issues"
+  },
+  "homepage": "https://github.com/kyratzakos/34rubies#readme",
+  "devDependencies": {
+    "concurrently": "~8.2.1",
+    "readline-promise": "^1.0.5",
+    "typescript": "~4.8.4"
+  },
+  "dependencies": {
+    "@types/node": "^20.11.15",
+    "@typescript-eslint/eslint-plugin": "~5.42.0",
+    "csv-parser": "^3.0.0",
+    "eslint": "~8.47.0",
+    "rimraf": "~5.0.1",
+    "ts-node": "^10.9.2"
+  },
+  "engines": {
+    "node": "18.10.0"
+  }
+}
