@@ -1,14 +1,14 @@
 {
   "name": "34rubies",
   "description": "A small RPG game",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "2.0.0",
+  "type": "module",
   "scripts": {
-    "premain": "rimraf dist && tsc",
-    "main": "concurrently \"tsc -w\"  \"node dist/index.js\" -i --default-input-target 1",
-    "build": "npm run lint && rimraf dist/ && tsc",
-    "start": "node dist/index.js",
-    "lint": "eslint . --ext .ts"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:dev": "tsc && vite build --mode development",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .ts,.tsx"
   },
   "repository": {
     "type": "git",
@@ -22,16 +22,18 @@
   },
   "homepage": "https://github.com/kyratzakos/34rubies#readme",
   "devDependencies": {
-    "concurrently": "~8.2.1",
-    "readline-promise": "^1.0.5",
-    "typescript": "~5.8.3"
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "~5.42.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "~8.51.0",
+    "rimraf": "~5.0.1",
+    "typescript": "~5.8.3",
+    "vite": "^6.2.5"
   },
   "dependencies": {
-    "@types/node": "^20.11.15",
-    "@typescript-eslint/eslint-plugin": "~5.42.0",
-    "csv-parser": "^3.0.0",
-    "eslint": "~8.51.0",
-    "rimraf": "~5.0.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "engines": {
     "node": "22.12.0"

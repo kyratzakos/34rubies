@@ -1,0 +1,16 @@
+{
+  "castle_approach": {
+    "message": "A young knight named Rudolf Ruleman with his sleepy horse, Snoozy, encountered a castle. In one of the balconies there was a princess. What does Rudolf do?",
+    "choices": [
+      { "text": "Get inside and ask her to marry him", "next_id": "get_inside_castle" },
+      { "text": "Continue the trip", "next_id": "forest_entry" }
+    ]
+  },
+  "get_inside_castle": {
+    "message": "He knocked on the door and an old man dressed as the buttler opened.-What do you want?-I am Knight Rudolf Ruleman from the Ruleman City and I want to marry the princess.-Sure, take this paper and when your number comes you can speak with the king.The number is 73. What does Rudolf do?",
+    "choices": [
+      { "text": "Follow butler inside and wait", "next_id": "castle_lobby" },
+      { "text": "Leave and continue the trip", "next_id": "forest_entry" }
+    ]
+  }
+}
