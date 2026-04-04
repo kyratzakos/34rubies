@@ -1,5 +1,5 @@
+import { STORY_BUNDLE_HASH_KEY, STORY_STORAGE_KEY } from './constants'
 import { Choice, Scene, Story } from './types'
-import { STORY_STORAGE_KEY } from './constants'
 
 function isChoice(value: unknown): value is Choice {
   if (typeof value !== 'object' || value === null) return false
@@ -10,7 +10,8 @@ function isChoice(value: unknown): value is Choice {
 function isScene(value: unknown): value is Scene {
   if (typeof value !== 'object' || value === null) return false
   if (!('message' in value) || !('choices' in value)) return false
-  if (typeof value.message !== 'string' || !Array.isArray(value.choices)) return false
+  if (!Array.isArray(value.message) || !Array.isArray(value.choices)) return false
+  if (!value.message.every((line: unknown) => typeof line === 'string')) return false
   return value.choices.every((c) => isChoice(c))
 }
 
@@ -33,6 +34,18 @@ export function loadStoryFromStorage(): Story | null {
 export function saveStoryToStorage(story: Story): void {
   try {
     localStorage.setItem(STORY_STORAGE_KEY, JSON.stringify(story, null, 2))
+  } catch {
+    // ignore quota / private mode
+  }
+}
+
+export function loadBundledHash(): string | null {
+  return localStorage.getItem(STORY_BUNDLE_HASH_KEY)
+}
+
+export function saveBundledHash(hash: string): void {
+  try {
+    localStorage.setItem(STORY_BUNDLE_HASH_KEY, hash)
   } catch {
     // ignore quota / private mode
   }

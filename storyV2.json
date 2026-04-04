@@ -1,16 +1,89 @@
 {
   "castle_approach": {
-    "message": "A young knight named Rudolf Ruleman with his sleepy horse, Snoozy, encountered a castle. In one of the balconies there was a princess. What does Rudolf do?",
+    "message": [
+      "A young knight named Rudolf Ruleman with his sleepy horse, Snoozy, encountered a castle. In one of the balconies there was a princess."
+    ],
     "choices": [
-      { "text": "Get inside and ask her to marry him", "next_id": "get_inside_castle" },
-      { "text": "Continue the trip", "next_id": "forest_entry" }
+      {
+        "text": "Get inside and ask her to marry him",
+        "next_id": "get_inside_castle"
+      },
+      {
+        "text": "Continue the trip",
+        "next_id": "forest_entry"
+      }
     ]
   },
   "get_inside_castle": {
-    "message": "He knocked on the door and an old man dressed as the buttler opened.-What do you want?-I am Knight Rudolf Ruleman from the Ruleman City and I want to marry the princess.-Sure, take this paper and when your number comes you can speak with the king.The number is 73. What does Rudolf do?",
+    "message": [
+      "He knocked on the door and an old man dressed as the buttler opened.",
+      "-What do you want?",
+      "-I am Knight Rudolf Ruleman from the Ruleman City and I want to marry the princess.",
+      "-Sure, take this paper and when your number comes you can speak with the king.",
+      "-The number is 73."
+    ],
     "choices": [
-      { "text": "Follow butler inside and wait", "next_id": "castle_lobby" },
-      { "text": "Leave and continue the trip", "next_id": "forest_entry" }
+      {
+        "text": "Follow butler inside and wait",
+        "next_id": "castle_lobby"
+      },
+      {
+        "text": "Leave and continue the trip",
+        "next_id": "forest_entry"
+      }
+    ]
+  },
+  "castle_lobby": {
+    "message": [
+      "Inside the lobby, there were 72 other knights. Some were sharpening their swords, others were combing their hair, and some others were doing push-ups."
+    ],
+    "choices": [
+      {
+        "text": "Call everybody into duel",
+        "next_id": "castle_duel"
+      },
+      {
+        "text": "Wait patiently for his turn",
+        "next_id": "castle_wait"
+      },
+      {
+        "text": "Paint his face with small purple dots",
+        "next_id": "castle_sick"
+      }
+    ]
+  },
+  "castle_duel": {
+    "message": [
+      "-Cowards, I'm challenging you all to fight me!",
+      "Noone answered",
+      "-What are you waiting for! Come and prove what you are worth!",
+      "Suddenly, one big and bulky knight stood up and got closer to Rudolf. Without saying a word, he grabbed him by the neck and threw him outside the window. He lands:"
+    ],
+    "choices": [
+      {
+        "text": "Into the river",
+        "next_id": "river"
+      },
+      {
+        "text": "At a big gold-feather dragon that happend to fly below the window",
+        "next_id": "dragon"
+      }
+    ]
+  },
+  "castle_sick": {
+    "message": [
+      "Knight Rudolf then painted small purple dots on his face and started coughing and shivering. Another knight next to him, worried, asked him:",
+      "-What's up, friend?",
+      "-Nothing. Just that I suffer from an extremely rare and contagious disease",
+      "-What disease?",
+      "-Its called Eggplantitisis, where your face turns purple, your nose transforms into an eggplant and your mouth becomes an eggplant salad.",
+      "As soon as he said that, all the other 72 knights rushed to the exit freightened. The butler called the next person"
+    ],
+    "choices": [
+      {
+        "text": "Clean his face and proceed",
+        "next_id": "castle_throne"
+      }
     ]
   }
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Metamorphous&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -22,7 +22,7 @@ html {
   --color-btn-hover: #2e2518;
   --color-btn-border: #6b4f38;
   --color-btn-border-hover: #c8963e;
-  --font-title: 'MedievalSharp', 'Georgia', serif;
+  --font-title: 'Metamorphous', 'Georgia', serif;
   --font-body: 'Crimson Text', 'Georgia', serif;
 }
 

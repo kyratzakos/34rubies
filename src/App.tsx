@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import storyData from '../storyV2.json'
 import { Story } from './types'
-import { isStory, loadStoryFromStorage, saveStoryToStorage } from './storyStorage'
+import { isStory, loadBundledHash, loadStoryFromStorage, saveBundledHash, saveStoryToStorage } from './storyStorage'
 import { GameView } from './components/GameView'
 import { StoryEditorPage } from './components/StoryEditorPage'
 
@@ -11,17 +11,24 @@ function assertBundledStory(data: unknown): Story {
 }
 
 const bundledStory = assertBundledStory(storyData)
+const bundledStoryHash = JSON.stringify(bundledStory)
 
 function routeFromHash(): 'play' | 'editor' {
   return window.location.hash === '#/editor' ? 'editor' : 'play'
 }
 
 export function App() {
-  const [story, setStory] = useState<Story>(() => loadStoryFromStorage() ?? bundledStory)
+  const [story, setStory] = useState<Story>(() => {
+    const stored = loadStoryFromStorage()
+    const storedHash = loadBundledHash()
+    if (stored && storedHash === bundledStoryHash) return stored
+    return bundledStory
+  })
   const [route, setRoute] = useState(routeFromHash)
 
   useEffect(() => {
     saveStoryToStorage(story)
+    saveBundledHash(bundledStoryHash)
   }, [story])
 
   useEffect(() => {

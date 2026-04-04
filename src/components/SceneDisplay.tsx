@@ -7,7 +7,11 @@ interface SceneDisplayProps {
 export function SceneDisplay({ scene }: SceneDisplayProps) {
   return (
     <div className="scene-display">
-      <p className="scene-message">{scene.message}</p>
+      {scene.message.map((line, idx) => (
+        <p key={idx} className="scene-message">
+          {line}
+        </p>
+      ))}
     </div>
   )
 }

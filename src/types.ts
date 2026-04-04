@@ -4,7 +4,7 @@ export interface Choice {
 }
 
 export interface Scene {
-  message: string
+  message: string[]
   choices: Choice[]
 }
 

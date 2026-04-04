@@ -19,7 +19,15 @@ export function AddSceneForm({ story, onAddScene }: AddSceneFormProps) {
   const [choices, setChoices] = useState<DraftChoice[]>([emptyChoice()])
   const [error, setError] = useState<string | null>(null)
 
-  const sceneIds = Object.keys(story).sort()
+  const existingIds = Object.keys(story).sort()
+
+  const referencedIds = Array.from(
+    new Set(Object.values(story).flatMap((scene) => scene.choices.map((c) => c.next_id))),
+  )
+
+  const missingIds = referencedIds.filter((id) => !story[id]).sort()
+
+  const allIds = Array.from(new Set([...existingIds, ...referencedIds])).sort()
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -36,8 +44,8 @@ export function AddSceneForm({ story, onAddScene }: AddSceneFormProps) {
       setError('That scene id already exists.')
       return
     }
-    const msg = message.trim()
-    if (!msg) {
+    const lines = message.split('\n').filter((line) => line.trim() !== '')
+    if (lines.length === 0) {
       setError('Message is required.')
       return
     }
@@ -54,7 +62,7 @@ export function AddSceneForm({ story, onAddScene }: AddSceneFormProps) {
       built.push({ text: t, next_id: n })
     }
 
-    onAddScene(id, { message: msg, choices: built })
+    onAddScene(id, { message: lines, choices: built })
     setSceneId('')
     setMessage('')
     setChoices([emptyChoice()])
@@ -74,7 +82,7 @@ export function AddSceneForm({ story, onAddScene }: AddSceneFormProps) {
             value={sceneId}
             onChange={(e) => setSceneId(e.target.value)}
             placeholder="e.g. forest_clearing"
-            list="existing-scene-ids"
+            list="missing-scene-ids"
           />
         </label>
 
@@ -85,7 +93,7 @@ export function AddSceneForm({ story, onAddScene }: AddSceneFormProps) {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             rows={4}
-            placeholder="What the player reads at this scene…"
+            placeholder="What the player reads at this scene… Each line becomes a separate paragraph."
           />
         </label>
 
@@ -113,7 +121,7 @@ export function AddSceneForm({ story, onAddScene }: AddSceneFormProps) {
                   setChoices(next)
                 }}
                 placeholder="next_id"
-                list="existing-scene-ids"
+                list="all-scene-ids"
                 aria-label={`Choice ${idx + 1} target scene id`}
               />
             </div>
@@ -132,8 +140,14 @@ export function AddSceneForm({ story, onAddScene }: AddSceneFormProps) {
         </button>
       </form>
 
-      <datalist id="existing-scene-ids">
-        {sceneIds.map((sid) => (
+      <datalist id="missing-scene-ids">
+        {missingIds.map((sid) => (
+          <option key={sid} value={sid} />
+        ))}
+      </datalist>
+
+      <datalist id="all-scene-ids">
+        {allIds.map((sid) => (
           <option key={sid} value={sid} />
         ))}
       </datalist>
