@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import storyData from '../storyV2.json'
+import storyData from '../assets/data/story.json'
 import { Story } from './types'
 import { isStory, loadBundledHash, loadStoryFromStorage, saveBundledHash, saveStoryToStorage } from './storyStorage'
 import { GameView } from './components/GameView'
 import { StoryEditorPage } from './components/StoryEditorPage'
 
 function assertBundledStory(data: unknown): Story {
-  if (!isStory(data)) throw new Error('Bundled storyV2.json is invalid')
+  if (!isStory(data)) throw new Error('Bundled story.json is invalid')
   return data
 }
 

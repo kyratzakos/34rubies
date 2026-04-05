@@ -1,7 +1,7 @@
 {
   "castle_approach": {
     "message": [
-      "A young knight named Rudolf Ruleman with his sleepy horse, Snoozy, encountered a castle. In one of the balconies there was a princess."
+      "A young knight named Rudolf Ruleman with his sleepy horse, Snoozy, encountered a castle. In one of the balconies there was a princess. What does Rudolf do?"
     ],
     "choices": [
       {
@@ -20,7 +20,7 @@
       "-What do you want?",
       "-I am Knight Rudolf Ruleman from the Ruleman City and I want to marry the princess.",
       "-Sure, take this paper and when your number comes you can speak with the king.",
-      "-The number is 73."
+      "-The number is 73. What does Rudolf do?"
     ],
     "choices": [
       {
@@ -35,7 +35,7 @@
   },
   "castle_lobby": {
     "message": [
-      "Inside the lobby, there were 72 other knights. Some were sharpening their swords, others were combing their hair, and some others were doing push-ups."
+      "Inside the lobby, there were 72 other knights. Some were sharpening their swords, others were combing their hair, and some others were doing push-ups. What does Rudolf do?"
     ],
     "choices": [
       {
@@ -57,7 +57,7 @@
       "-Cowards, I'm challenging you all to fight me!",
       "Noone answered",
       "-What are you waiting for! Come and prove what you are worth!",
-      "Suddenly, one big and bulky knight stood up and got closer to Rudolf. Without saying a word, he grabbed him by the neck and threw him outside the window. He lands:"
+      "Suddenly, one big and bulky knight stood up and got closer to Rudolf. Without saying a word, he grabbed him by the neck and threw him outside the window. Where does Rudold land?"
     ],
     "choices": [
       {
@@ -77,7 +77,7 @@
       "-Nothing. Just that I suffer from an extremely rare and contagious disease",
       "-What disease?",
       "-Its called Eggplantitisis, where your face turns purple, your nose transforms into an eggplant and your mouth becomes an eggplant salad.",
-      "As soon as he said that, all the other 72 knights rushed to the exit freightened. The butler called the next person"
+      "As soon as he said that, all the other 72 knights rushed to the exit freightened. The butler called the next person\t"
     ],
     "choices": [
       {

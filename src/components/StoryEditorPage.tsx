@@ -37,11 +37,11 @@ export function StoryEditorPage({
 
       <p className="editor-intro">
         Edits are saved in this browser ({isModified ? 'custom story active' : 'matches bundled JSON'}). Download JSON to
-        update <code className="inline-code">storyV2.json</code> in the project.
+        update <code className="inline-code">story.json</code> in the project.
       </p>
 
       <div className="editor-toolbar">
-        <button type="button" className="editor-primary-button" onClick={() => downloadStoryJson(story, 'storyV2.json')}>
+        <button type="button" className="editor-primary-button" onClick={() => downloadStoryJson(story, 'story.json')}>
           Download JSON
         </button>
         <button
